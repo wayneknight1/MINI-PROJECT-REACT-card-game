@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from 'react'
+import DisplayImages from './components/DisplayImages';
+import './styles.css'
+import Modal from './components/Modal';
+import { useState } from 'react';
 function App() {
+  const [openModal,setOpenModal] = useState(false)
+  const images = [
+    "https://images.unsplash.com/photo-1626808642875-0aa545482dfb",
+    "https://images.unsplash.com/photo-1546842931-886c185b4c8c",
+    "https://images.unsplash.com/photo-1520763185298-1b434c919102",
+    "https://images.unsplash.com/photo-1442458017215-285b83f65851",
+    "https://images.unsplash.com/photo-1496483648148-47c686dc86a8",
+    "https://images.unsplash.com/photo-1591181520189-abcb0735c65d",  
+    "https://images.unsplash.com/photo-1520763185298-1b434c919102",
+    "https://images.unsplash.com/photo-1546842931-886c185b4c8c",
+    "https://images.unsplash.com/photo-1591181520189-abcb0735c65d",
+    "https://images.unsplash.com/photo-1496483648148-47c686dc86a8",
+    "https://images.unsplash.com/photo-1442458017215-285b83f65851",
+    "https://images.unsplash.com/photo-1626808642875-0aa545482dfb",
+];
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app-container'>
+     {openModal &&<Modal/>}
+      <DisplayImages images={images} setOpenModal = {setOpenModal}/>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
